@@ -1,0 +1,30 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="car car-body">
+        <form (submit)="submitLocation(CityName)">
+          <input type="text" class="form-control" placeholder="City Name" #CityName>
+          <button class="btn btn-primary btn-block mt-2">Search</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="Weather" class="car car-body">
+        <p>City: {{Weather.name}}</p>
+        <p>Country: {{Weather.sys.country}}</p>
+        <p>Time Zone: {{Weather.timezone}}</p>
+        <p>Weather: {{Weather.weather[0].description}}</p>
+        <p>Weather: {{Weather.weather[0].main}}</p>
+        <p>Wind: {{Weather.wind.speed}}</p>
+        <p>Temperature: {{Weather.main.temp}}</p>
+        <p>Humidity: {{Weather.main.humidity}}</p>
+        <p>Pressure: {{Weather.main.pressure}}</p>
+        <p>Clouds: {{Weather.clouds.all}}</p>
+        <p #valorLat>Latitud: {{Weather.coord.lat}}</p>
+        <p #valorLng>Longitud: {{Weather.coord.lon}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
